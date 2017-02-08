@@ -14,6 +14,8 @@ var wins = 1;
 
 var losses = 1; 
 
+var guesses = 9;
+
 
 //user choice array 
 
@@ -25,33 +27,33 @@ var userChoice = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm
 document.onkeypress = function(event) {
 
    var userChoice = event.key;
-   var newSpan = document.createElement('span');
-   var newContent = document.createTextNode("Your guesses so far: " + userChoice);
-   document.getElementById('guess').innerHTML = (userChoice);
-   //var newSpan = document.createElement('span'); 
-   //var userGuesses = document.createTextNode ("Your guesses so far: " + userChoice);
-	//document.getElementById('guess').appendChild = (newSpan);
+   var newEl = document.createElement('span');
+   var newContent = document.createTextNode(userChoice + ', ');
+   newEl.appendChild(newContent);
+   var position = document.getElementById('guess');
+   position.appendChild(newEl);
+   
 
-  
-   	//userWin.appendChild(newContent);
-   	//var userWin = document.createElement('span');
-   	//var newContent = document.createTextNode(wins++);
-   	//userWin.appendChild(newContent);
-   	//var currentDiv = document.getElementById("wins").appendChild(userWin);
+//if else alerting win or lose 
 
-
-   //if else alerting win or lose 
 
 if (computer === userChoice) {
    document.getElementById('wins').innerHTML = ("Wins: " + wins++);
 	 computer = computerChoice[Math.floor(Math.random() * computerChoice.length)];
 console.log(computer);
+   alert("You win! See if you can guess a new letter!")
 } else { 
 	document.getElementById('losses').innerHTML = ("Losses: " + losses++);
-	
-}
-
+  document.getElementById('left').innerHTML = ("Guesses Left: " + guesses--);
+     }  
+    
 };
+
+if (guesses === 0) {
+  alert ('Game over!');
+};
+
+
 
 
 
