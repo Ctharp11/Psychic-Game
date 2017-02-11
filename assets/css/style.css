@@ -15,7 +15,37 @@
 	font-size: 20px;
 }
 
+.col-lg-6 { 
+	width: 70%;
+	text-align: center;
+ }
+
+
+
 .image {
 	
 	background-image: url("../images/psychic.jpg");
+}
+
+@media screen and (max-width: 600px) {
+
+	body {
+		background-image: url('../images/penguin.jpg');
+
+	} 
+
+	.image {
+		display: none;
+	}
+
+	.jumbotron{ 
+		display: none;
+	 }
+
+	 .content { 
+		display: none;
+	  }
+
+
+
 }
